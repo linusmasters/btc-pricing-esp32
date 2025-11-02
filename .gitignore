@@ -1,0 +1,206 @@
+# ============================================
+# ESP32 / Arduino IDE
+# ============================================
+*.hex
+*.eep
+*.elf
+*.bin
+*.map
+*.lss
+*.sym
+*.lst
+*.o
+*.d
+*.a
+*.S
+*.s
+
+# Arduino IDE build files
+.build/
+build/
+*.ino.cpp
+*.ino.globals.h
+*.ino.with_bootloader.bin
+*.ino.with_bootloader.hex
+
+# PlatformIO (if used)
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# ============================================
+# Credentials & Secrets
+# ============================================
+# IMPORTANT: Never commit WiFi credentials or API keys
+secrets.h
+config.h
+credentials.h
+
+# ============================================
+# Docker
+# ============================================
+# Docker volumes and data
+volumes/
+docker-data/
+*.log
+
+# ============================================
+# PostgreSQL
+# ============================================
+# Database dumps
+*.sql.gz
+*.dump
+*.backup
+pg_data/
+postgres-data/
+
+# ============================================
+# EMQX
+# ============================================
+emqx-data/
+emqx-log/
+
+# ============================================
+# Web Application (Next.js)
+# ============================================
+
+# Dependencies
+web/node_modules/
+web/.pnp
+web/.pnp.js
+web/.yarn/install-state.gz
+
+# Testing
+web/coverage/
+
+# Next.js
+web/.next/
+web/out/
+
+# Production
+web/build/
+web/dist/
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+
+# Local env files
+web/.env*.local
+web/.env.local
+web/.env.development.local
+web/.env.test.local
+web/.env.production.local
+
+# Vercel
+web/.vercel
+
+# TypeScript
+web/*.tsbuildinfo
+web/next-env.d.ts
+
+# ============================================
+# IDEs & Editors
+# ============================================
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# Operating System
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Documentation & Media
+# ============================================
+# Ignore large media files (optional)
+# *.mp4
+# *.avi
+# *.mov
+# *.pdf
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.cache
+*.log
+.cache/
+
+# ============================================
+# Project Specific
+# ============================================
+# Backup files
+*.backup
+*.old
+
+# Test data
+test-data/
+dummy-data/
+
+# Local notes
+notes.txt
+TODO.txt
+NOTES.md

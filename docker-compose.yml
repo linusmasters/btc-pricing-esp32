@@ -1,0 +1,58 @@
+services:
+  emqx:
+    image: emqx/emqx:latest
+    container_name: emqx
+    restart: unless-stopped
+    ports:
+      - "1883:1883"    # MQTT TCP
+      - "8083:8083"    # MQTT sobre WebSocket
+      - "18083:18083"  # Dashboard
+      # (opcional) TLS:
+      # - "8883:8883"  # MQTT TLS
+      # - "8084:8084"  # MQTT sobre WebSocket TLS
+    environment:
+      # usuário/senha do dashboard
+      EMQX_DASHBOARD__DEFAULT_USERNAME: admin
+      EMQX_DASHBOARD__DEFAULT_PASSWORD: public
+      # nome do nó (ajuda em logs e clusters)
+      EMQX_NODE__NAME: emqx@127.0.0.1
+      # (opcional) habilitar persistência de sessão/retained entre restarts
+      EMQX_PERSISTENT_SESSION__ENABLE: "true"
+    volumes:
+      - emqx_data:/opt/emqx/data
+      - emqx_log:/opt/emqx/log
+    # (opcional) defina uma rede própria
+    # networks:
+    #   - emqx_net
+
+  postgres:
+    image: postgres:16
+    container_name: pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: emqx
+      POSTGRES_PASSWORD: emqxpass
+      POSTGRES_DB: iot
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - "8081:8080"   # http://localhost:8081
+    depends_on:
+      - postgres    
+
+volumes:
+  emqx_data:
+  emqx_log:
+  pg_data:
+
+# networks:
+#   emqx_net:
+#     driver: bridge
